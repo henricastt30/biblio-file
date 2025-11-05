@@ -17,7 +17,7 @@ app.post("/user", async (req, res) => {
         const { body } = req;
         const [results] = await pool.query(
             `
-            INSERT INTO users (nome, email, senha) VALUE(?, ?, ?)
+            INSERT INTO users (nome, email, senha) VALUES(?, ?, ?)
             `, 
             [body.nome, body.email, body.senha]
         )
@@ -50,6 +50,52 @@ app.get("/user/:id", async (req, res) => {
             SELECT * FROM users WHERE id_user = ?;
             `,
             id
+        )
+        res.send(results)
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+app.post("/livro", async (req, res) => {
+    try {
+        const {body} = req;
+        const [results] = await pool.query(
+            `
+            INSERT INTO livro(titulo, autor, genero, total_paginas, tempo_leitura, nota, resenha, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            `,
+            [body.titulo, body.autor, body.genero, body.total_paginas, body.tempo_leitura, body.nota, body.resenha, body.user_id]
+        )
+        res.send("Ok!")
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+app.get("/livro/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const [results] = await pool.query(
+            `
+            SELECT * FROM livro WHERE id_livro = ?;
+            `,
+            id
+        )
+        res.send(results)
+    }
+    catch (error) {
+        console.log(error)
+    }
+})
+
+app.get("/livros", async (req, res) => {
+    try {
+        const [results] = await pool.query(
+            `
+            SELECT * FROM livro
+            `
         )
         res.send(results)
     }
