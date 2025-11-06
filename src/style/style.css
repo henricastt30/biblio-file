@@ -1,18 +1,30 @@
+/* Card User Start */
+
 .card-user{
-    width: 260px;
-    height: 230px;
+    width: 225px;
+    height: 190px;
     border-radius: 5px;
     border: 2px #ededed solid;
 }
 
+/* Card User End */
+
+/* Card Register Start */
+
 .card-register{
-    width: 600px;
+    width: 765px;
     height: auto;
     border-radius: 5px;
     border: 2px #ededed solid;
 }
 
+/* Card Register End */
+
+/* Card Books Start */
+
 .card-books{
     width: 600px;
     height: 200px;
 }
+
+/* Card Books End */
