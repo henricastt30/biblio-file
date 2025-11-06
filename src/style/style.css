@@ -1,0 +1,18 @@
+.card-user{
+    width: 260px;
+    height: 230px;
+    border-radius: 5px;
+    border: 2px #ededed solid;
+}
+
+.card-register{
+    width: 600px;
+    height: auto;
+    border-radius: 5px;
+    border: 2px #ededed solid;
+}
+
+.card-books{
+    width: 600px;
+    height: 200px;
+}

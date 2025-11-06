@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiblioFile</title>
+
+    <link rel="stylesheet" href="../style/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js" integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js" integrity="sha512-HvOjJrdwNpDbkGJIG2ZNqDlVqMo77qbs4Me4cah0HoDrfhrbA+8SBlZn1KrvAQw7cILLPFJvdwIgphzQmMm+Pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">BiblioFile</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Meus Livros</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Comunidade
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Pessoas</a></li>
+                  <li><a class="dropdown-item" href="#">Livros</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Publicações</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Recomendações</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input required class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <main>
+        <div class="container d-flex">
+            <div class="d-flex justify-content-end col-md-4 p-2 mt-4">       
+                <section class="card-user">
+                    <div class="container">
+                        
+                    </div>
+                </section>
+            </div>
+    
+            <div class="d-flex align-content-start flex-column col-md-8 p-2 mt-4">
+                <h5>Meu Diário de Leitura</h5>
+                <section class="card-register">
+                    <div class="container pt-2">
+
+                        <form id="frmRegister">
+
+                            <h6>Registre sua Leitura</h6>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="titulo" class="form-label">Título do Livro</label>
+                                    <input required type="text" class="form-control" id="titulo">
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <label for="autor" class="form-label">Autor</label>
+                                    <input required type="text" class="form-control" id="autor">
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <label for="genero" class="form-label">Gênero do Livro</label>
+                                    <select required name="genero" class="form-control" id="genero">
+                                        <option value="" disabled selected>Selecione o Gênero</option>
+                                        <option value="aventura">Aventura</option>
+                                        <option value="classicos">Clássicos</option>
+                                        <option value="distopia">Distopia</option>
+                                        <option value="drama">Drama</option>
+                                        <option value="erotico">Erótico</option>
+                                        <option value="fantasia-epica">Fantasia épica</option>
+                                        <option value="ficcao-historica">Ficção histórica</option>
+                                        <option value="humor">Humor</option>
+                                        <option value="infantojuvenil">Infantojuvenil</option>
+                                        <option value="poesia">Poesia</option>
+                                        <option value="policial">Policial</option>
+                                        <option value="psicologico">Psicológico</option>
+                                        <option value="suspense">Suspense</option>
+                                        <option value="viagem">Viagem</option>
+                                    </select>
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <label for="paginas" class="form-label">Total de Páginas</label>
+                                    <input required type="text" class="form-control" id="paginas">
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <label for="tempo" class="form-label">Tempo de Leitura (horas)</label>
+                                    <input required type="text" class="form-control" id="tempo">
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <label for="nota" class="form-label">Sua Nota (1-5)</label>
+                                    <select required name="nota" class="form-control" id="nota">
+                                        <option value="" disabled selected>Selecione Sua Nota</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+    
+                                <div class="col-md-12">
+                                    <label for="resenha" class="form-label">Resenha (opcional)</label>
+                                    <input type="text" class="form-control" id="resenha">
+                                </div>
+                                
+                                <div class="mb-3 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary">Registrar Leitura</button>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </section>
+        
+                <section class="card-books">
+                    <div class="container">
+                        <div class="posts"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+      </main>
+
+      <script>
+
+        document.getElementById('frmRegister').addEventListener('submit', function(){
+
+            const titulo = document.getElementById('titulo').value;
+            const autor = document.getElementById('autor').value;
+            const genero = document.getElementById('genero').value;
+            const paginas = document.getElementById('paginas').value;
+            const tempo = document.getElementById('tempo').value;
+            const nota = document.getElementById('nota').value;
+            const resenha = document.getElementById('resenha').value;
+
+            const urlRegister = 'http://localhost:3000/livro';
+
+            fetch(urlRegister, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({titulo, autor, genero, paginas, tempo, nota, resenha})
+            })
+            .then((res) => {
+                if(!res.ok)
+                    console.log("Erro ao registrar livro");
+                return res.json();
+            })
+            .then((data) => {
+                if(data)
+                    return alert("Livro registrado com sucesso")
+            })
+            .catch((error) => console.log(error))
+        })
+
+      </script>
+</body>
+</html>
