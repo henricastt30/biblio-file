@@ -61,11 +61,12 @@ app.get("/user/:id", async (req, res) => {
 app.post("/livro", async (req, res) => {
     try {
         const {body} = req;
+        console.log(body)
         const [results] = await pool.query(
             `
             INSERT INTO livro(titulo, autor, genero, total_paginas, tempo_leitura, nota, resenha, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             `,
-            [body.titulo, body.autor, body.genero, body.total_paginas, body.tempo_leitura, body.nota, body.resenha, body.user_id]
+            [body.titulo, body.autor, body.genero, body.paginas, body.tempo, body.nota, body.resenha, body.user_id]
         )
         res.send("Ok!")
     }
@@ -79,7 +80,16 @@ app.get("/livro/:id", async (req, res) => {
         const { id } = req.params;
         const [results] = await pool.query(
             `
-            SELECT * FROM livro WHERE id_livro = ?;
+            SELECT 
+            	id_livro,
+            	titulo,
+            	autor,
+            	genero,
+            	total_paginas,
+            	tempo_leitura,
+            	nota,
+                resenha 
+            FROM livro;
             `,
             id
         )
